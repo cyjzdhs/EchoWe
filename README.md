@@ -44,7 +44,7 @@ CUDA available: True
 ```
 
 ## 三、数据准备
-WeFlow导出来适配json和weclon的cvs
+## WeFlow（https://github.com/hicccc77/WeFlow）导出来适配json和weclon格式的cvs
 ### 3.1 原始数据格式要求
 支持两种输入格式：
 - **导出 JSON**：文件应包含 `messages` 数组，每条消息有 `createTime`（整数时间戳）、`isSend`（1=发送，0=接收）、`content`（文本内容）。
@@ -203,6 +203,7 @@ model = PeftModel.from_pretrained(model, "wechat_lora_v1")
 
 
 本流程构建了一个完整的人格模型训练体系，包含环境配置、数据准备、训练、监控、测试和继续微调。关键在于数据构造方式符合类似于微信聊天的自然流，而非简单 QA 对。建议在实际使用中根据数据特点灵活调整清洗参数和训练策略。标准 Causal LM 方式训练（prompt + response 都算 loss），而不是像 SFT 那样只对 response 算 loss。目的在于先注入风格在进行对话，因为大部分聊天数据都是跳跃很大的。然后记得读注释，修改基础配置，不然就丢给ai读再教你。
+
 
 
 
