@@ -7,7 +7,7 @@
 - 脚本都集成一个代码里面，必须仔细阅读代码注释或者说明，防止出错
 - 原理：标准 Causal LM 方式训练（prompt + response 都算 loss），而不是像 SFT 那样只对 response 算 loss。但是为了对齐对话，会再次sft训练
 ## 二、环境要求
-# 可以试试lab4ai(送50代金券够完成了) https://www.lab4ai.cn/register?promoteID=user-8NddZi47ik
+## 可以试试lab4ai(送50代金券够完成了) https://www.lab4ai.cn/register?promoteID=user-8NddZi47ik
 - **GPU**：H800 80G（或类似显存，可根据显存调整 batch size 和 max_length）
 - **Python**：3.10 或 3.11（避免 3.12 的兼容问题）
 - **PyTorch**：≥ 2.1（推荐 2.7.1 与 CUDA 12.8 组合）
@@ -203,6 +203,7 @@ model = PeftModel.from_pretrained(model, "wechat_lora_v1")
 
 
 本流程构建了一个完整的人格模型训练体系，包含环境配置、数据准备、训练、监控、测试和继续微调。关键在于数据构造方式符合类似于微信聊天的自然流，而非简单 QA 对。建议在实际使用中根据数据特点灵活调整清洗参数和训练策略。标准 Causal LM 方式训练（prompt + response 都算 loss），而不是像 SFT 那样只对 response 算 loss。目的在于先注入风格在进行对话，因为大部分聊天数据都是跳跃很大的。然后记得读注释，修改基础配置，不然就丢给ai读再教你。
+
 
 
 
