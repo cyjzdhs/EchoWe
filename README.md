@@ -1,5 +1,5 @@
 
-#EchoWe
+# EchoWe
 
 ## 一、背景与目标
 - 模型为 DeepSeek-R1-0528-Qwen3-8B（Qwen3 架构），使用 LoRA 高效微调。
@@ -203,5 +203,6 @@ model = PeftModel.from_pretrained(model, "wechat_lora_v1")
 
 
 本流程构建了一个完整的人格模型训练体系，包含环境配置、数据准备、训练、监控、测试和继续微调。关键在于数据构造方式符合类似于微信聊天的自然流，而非简单 QA 对。建议在实际使用中根据数据特点灵活调整清洗参数和训练策略。标准 Causal LM 方式训练（prompt + response 都算 loss），而不是像 SFT 那样只对 response 算 loss。目的在于先注入风格在进行对话，因为大部分聊天数据都是跳跃很大的。然后记得读注释，修改基础配置，不然就丢给ai读再教你。
+
 
 
